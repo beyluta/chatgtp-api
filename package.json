@@ -1,5 +1,5 @@
 {
-  "name": "opeanai-chatgpt-api",
+  "name": "openai-chatgpt-api",
   "version": "1.0.0",
   "description": "JavaScript library to access the official OpenAI chat completion API",
   "main": "index.js",
