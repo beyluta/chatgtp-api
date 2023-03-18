@@ -4,7 +4,7 @@ The ChatGPT JavaScript class provides an interface for interacting with the Open
 
 ```javascript
 // Require the ChatGPT class
-const ChatGPT = require("chatgpt-api");
+const ChatGPT = require("opeanai-chatgpt-api");
 
 async function chatWithBot() {
   // Instantiate a new ChatGPT object with your API access token
@@ -36,7 +36,7 @@ When we instantiate a new ChatGPT object, we pass in the options object as the s
 
 ```javascript
 // Require the ChatGPT class
-const ChatGPT = require('chatgpt-api');
+const ChatGPT = require('opeanai-chatgpt-api');
 
 async function chatWithBot() {
   // Define options for the ChatGPT model
