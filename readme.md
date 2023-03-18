@@ -36,7 +36,7 @@ When we instantiate a new ChatGPT object, we pass in the options object as the s
 
 ```javascript
 // Require the ChatGPT class
-const ChatGPT = require('./ChatGPT');
+const ChatGPT = require('chatgpt-api');
 
 async function chatWithBot() {
   // Define options for the ChatGPT model
