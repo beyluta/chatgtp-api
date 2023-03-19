@@ -38,7 +38,8 @@ class ChatGPT {
      * const reply = await chatgpt.complete("Hello, how are you?");
      */
     async complete(prompt) {
-        return await new Promise((resolve) => {
+        this.options.messages.push({ role: 'user', content: prompt });
+        const response = await new Promise((resolve, reject) => {
             fetch("https://api.openai.com/v1/chat/completions", {
                 method: "POST",
                 headers: {
@@ -46,10 +47,12 @@ class ChatGPT {
                     "Authorization": `Bearer ${this.access_token}`
                 },
                 body: JSON.stringify({
-                    ...this.options, messages: [{ role: 'user', content: prompt }].concat(this.options.messages)
+                    ...this.options
                 })
-            }).then((res) => resolve(res.text()));
+            }).then(async (res) => resolve(res.text())).catch((err) => reject(err));
         });
+        this.options.messages.push({ role: 'assistant', content: JSON.parse(response).choices[0].message.content });
+        return response;
     }
 }
 
