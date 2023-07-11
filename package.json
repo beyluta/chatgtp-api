@@ -1,9 +1,20 @@
 {
   "name": "openai-chatgpt-api",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "JavaScript library to access the official OpenAI chat completion API",
   "main": "index.js",
   "author": "Beyluta",
   "license": "MIT",
-  "repository": "https://github.com/beyluta/chatgtp-api"
+  "repository": "https://github.com/beyluta/chatgtp-api",
+  "scripts": {
+    "declarations": "npx tsc",
+    "format": "npx prettier --write ."
+  },
+  "dependencies": {
+    "node-fetch": "^2.6.1"
+  },
+  "devDependencies": {
+    "prettier": "^3.0.0",
+    "typescript": "^4.6.4"
+  }
 }

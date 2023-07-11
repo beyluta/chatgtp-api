@@ -1,8 +1,5 @@
-if (typeof process === "object" && typeof require === "function") {
-  var fetch = require("node-fetch");
-}
-
-class ChatGPT {
+export = ChatGPT;
+declare class ChatGPT {
   /**
    * Initializes a new instance of the ChatGPT class.
    * @param {string} access_token The API key to use for the ChatGPT API.
@@ -21,19 +18,38 @@ class ChatGPT {
    * @param {string} options.user A unique identifier representing your end-user.
    *
    */
-  constructor(access_token, options = {}) {
-    if (!options.model) {
-      options.model = "gpt-3.5-turbo";
-    }
-
-    if (!options.messages) {
-      options.messages = [{ role: "system", content: "" }];
-    }
-
-    this.access_token = access_token;
-    this.options = options;
-  }
-
+  constructor(
+    access_token: string,
+    options?: {
+      messages: [];
+      model: string;
+      temperature: number;
+      top_p: number;
+      n: number;
+      stream: boolean;
+      stop: number;
+      max_tokens: number;
+      presence_penalty: number;
+      frequency_penalty: number;
+      logit_bias: any;
+      user: string;
+    },
+  );
+  access_token: string;
+  options: {
+    messages: [];
+    model: string;
+    temperature: number;
+    top_p: number;
+    n: number;
+    stream: boolean;
+    stop: number;
+    max_tokens: number;
+    presence_penalty: number;
+    frequency_penalty: number;
+    logit_bias: any;
+    user: string;
+  };
   /**
    * This function is used to send a message to the ChatGPT API.
    * @param {string} prompt The message to send to the ChatGPT API.
@@ -41,30 +57,6 @@ class ChatGPT {
    * @example
    * const reply = await chatgpt.complete("Hello, how are you?");
    */
-  async complete(prompt) {
-    this.options.messages.push({ role: "user", content: prompt });
-    const response = await new Promise((resolve, reject) => {
-      fetch("https://api.openai.com/v1/chat/completions", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${this.access_token}`,
-        },
-        body: JSON.stringify({
-          ...this.options,
-        }),
-      })
-        .then(async (res) => resolve(res.text()))
-        .catch((err) => reject(err));
-    });
-    this.options.messages.push({
-      role: "assistant",
-      content: JSON.parse(response).choices[0].message.content,
-    });
-    return response;
-  }
+  complete(prompt: string): Promise<any>;
 }
-
-if (typeof module !== "undefined") {
-  module.exports = ChatGPT;
-}
+//# sourceMappingURL=index.d.ts.map

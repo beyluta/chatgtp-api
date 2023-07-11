@@ -33,17 +33,16 @@ chatWithBot();
 
 When we instantiate a new ChatGPT object, we pass in the options object as the second parameter along with our OpenAI API access token. This tells the chatbot to use these messages as the initial part of the conversation.
 
-
 ```javascript
 // Require the ChatGPT class
-const ChatGPT = require('opeanai-chatgpt-api');
+const ChatGPT = require("opeanai-chatgpt-api");
 
 async function chatWithBot() {
   // Define options for the ChatGPT model
   const options = {
     messages: [
-      { role: 'system', content: 'Welcome to our chatbot!' },
-      { role: 'system', content: 'Please enter your name to get started.' },
+      { role: "system", content: "Welcome to our chatbot!" },
+      { role: "system", content: "Please enter your name to get started." },
     ],
   };
 
@@ -67,60 +66,82 @@ async function chatWithBot() {
 
 // Call the chatWithBot function
 chatWithBot();
-
 ```
 
 Here is a list of the full range of options available in the ChatGPT class:
 
 ### options.messages
+
 - Type: Array
 - Required: No
 - Default value: [{ role: 'system', content: '' }]
 - Description: The user prompts.
+
 ### options.model
+
 - Type: string
 - Required: No
 - Default value: "gpt-3.5-turbo"
 - Description: Which machine learning model to use.
+
 ### options.temperature
+
 - Type: number
 - Required: No
 - Description: What sampling temperature to use.
+
 ### options.top_p
+
 - Type: number
 - Required: No
 - Description: An alternative to sampling with temperature.
+
 ### options.n
+
 - Type: number
 - Required: No
 - Description: How many chat completion choices to generate for each input message.
+
 ### options.stream
+
 - Type: boolean
 - Required: No
 - Description: Should send partial message deltas?
+
 ### options.stop
+
 - Type: number
 - Required: No
 - Description: How many tokens to stop the chat completion after.
+
 ### options.max_tokens
+
 - Type: number
 - Required: No
 - Description: How many tokens to generate for each chat completion.
+
 ### options.presence_penalty
+
 - Type: number
 - Required: No
 - Description: How much to penalize new tokens based on whether they appear in the text so far.
+
 ### options.frequency_penalty
+
 - Type: number
 - Required: No
 - Description: How much to penalize new tokens based on their existing frequency in the text so far.
+
 ### options.logit_bias
+
 - Type: Object
 - Required: No
--Description: Modify the likelihood of specified tokens appearing in the completion.
+  -Description: Modify the likelihood of specified tokens appearing in the completion.
+
 ### options.user
+
 - Type: string
 - Required: No
 - Description: A unique identifier representing your end-user.
 
-*Note: Default values have been provided where applicable.*
+_Note: Default values have been provided where applicable._
